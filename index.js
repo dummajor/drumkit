@@ -1,3 +1,5 @@
+//Detecting Button Pressed
+
 var numberOfButtons = document.querySelectorAll(".drum").length;
 
 for (var btn = 0; btn < numberOfButtons; btn++) {   
@@ -5,7 +7,22 @@ document.querySelectorAll(".drum")[btn].addEventListener("click", function() {
     
     var buttonClicked = this.innerHTML;
 
-    switch (buttonClicked) {
+    makeSound(buttonClicked);
+
+
+});
+}
+
+// Detecting Keyboard Key Pressed
+
+document.addEventListener("keydown", function(event) {
+    makeSound(event.key)
+
+});
+    
+
+function makeSound(key) {
+    switch (key) {
         case "w":
             var tom1 = new Audio("sounds/tom-1.mp3");
             tom1.play();
@@ -42,8 +59,7 @@ document.querySelectorAll(".drum")[btn].addEventListener("click", function() {
             break;
 
         default:
-            console.log(buttonClicked);
+            console.log(key);
     }
-    
-});
+
 }
