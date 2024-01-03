@@ -8,12 +8,10 @@ document.querySelectorAll(".drum")[btn].addEventListener("click", function() {
     var buttonClicked = this.innerHTML;
 
     makeSound(buttonClicked);
-
-
 });
 }
 
-// Detecting Keyboard Key Pressed
+// Detecting Keyboard presses
 
 document.addEventListener("keydown", function(event) {
     makeSound(event.key)
@@ -21,6 +19,7 @@ document.addEventListener("keydown", function(event) {
 });
     
 
+ 
 function makeSound(key) {
     switch (key) {
         case "w":
