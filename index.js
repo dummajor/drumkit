@@ -8,6 +8,7 @@ document.querySelectorAll(".drum")[btn].addEventListener("click", function() {
     var buttonClicked = this.innerHTML;
 
     makeSound(buttonClicked);
+    animateBtn(buttonClicked);
 });
 }
 
@@ -15,6 +16,7 @@ document.querySelectorAll(".drum")[btn].addEventListener("click", function() {
 
 document.addEventListener("keydown", function(event) {
     makeSound(event.key)
+    animateBtn(event.key);
 
 });
     
@@ -60,5 +62,15 @@ function makeSound(key) {
         default:
             console.log(key);
     }
+}
 
+// Adding Animation to the Buttons 
+function animateBtn(currentKey) {
+    var activeBtn = document.querySelector("." + currentKey); 
+
+    activeBtn.classList.add("pressed"); // toggles the class on
+
+    setTimeout(function() {
+        activeBtn.classList.remove("pressed"); // toggles the class off
+    }, 100);
 }
